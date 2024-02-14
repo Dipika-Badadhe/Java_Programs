@@ -1,0 +1,100 @@
+create database employee3;
+Query OK, 1 row affected (1.48 sec)
+
+mysql> use employee3;
+Database changed
+
+mysql> create table employee4(emp_id int primary key, emp_name Varchar(20), job_name Varchar(10), salary decimal(12,3), emp_address Varchar(20));
+Query OK, 0 rows affected (2.12 sec)
+
+desc emplyee4;
+mysql> desc employee4;
++-------------+---------------+------+-----+---------+-------+
+| Field       | Type          | Null | Key | Default | Extra |
++-------------+---------------+------+-----+---------+-------+
+| emp_id      | int           | NO   | PRI | NULL    |       |
+| emp_name    | varchar(20)   | YES  |     | NULL    |       |
+| job_name    | varchar(10)   | YES  |     | NULL    |       |
+| salary      | decimal(12,3) | YES  |     | NULL    |       |
+| emp_address | varchar(20)   | YES  |     | NULL    |       |
++-------------+---------------+------+-----+---------+-------+
+5 rows in set (0.06 sec)
+
+mysql> insert into employee4 values('1','dipika','developer','45000','pune');
+Query OK, 1 row affected (0.27 sec)
+
+mysql> insert into employee4 values('2','nikita','developer','35000','thane');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> insert into employee4 values('3','mina','testing','35000','mumbai');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into employee4 values('4','lina','testing','40000','nagar');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into employee4 values('5','mona','testing','30000','shirur');
+Query OK, 1 row affected (0.08 sec)
+
+//create table
+mysql> select *from employee4;
++--------+----------+-----------+-----------+-------------+
+| emp_id | emp_name | job_name  | salary    | emp_address |
++--------+----------+-----------+-----------+-------------+
+|      1 | dipika   | developer | 45000.000 | pune        |
+|      2 | nikita   | developer | 35000.000 | thane       |
+|      3 | mina     | testing   | 35000.000 | mumbai      |
+|      4 | lina     | testing   | 40000.000 | nagar       |
+|      5 | mona     | testing   | 30000.000 | shirur      |
++--------+----------+-----------+-----------+-------------+
+5 rows in set (0.04 sec)
+
+
+//update table
+mysql> update employee4 set emp_name='dipika' where emp_id='3';
+Query OK, 1 row affected (0.17 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from employee4;
++--------+----------+-----------+-----------+-------------+
+| emp_id | emp_name | job_name  | salary    | emp_address |
++--------+----------+-----------+-----------+-------------+
+|      1 | dipika   | developer | 45000.000 | pune        |
+|      2 | nikita   | developer | 35000.000 | thane       |
+|      3 | dipika   | testing   | 35000.000 | mumbai      |
+|      4 | lina     | testing   | 40000.000 | nagar       |
+|      5 | mona     | testing   | 30000.000 | shirur      |
++--------+----------+-----------+-----------+-------------+
+5 rows in set (0.00 sec)
+
+//Alter table
+
+mysql> alter table employee4 add phonenumber int(11);
+Query OK, 0 rows affected, 1 warning (0.94 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> select *from employee4;
++--------+----------+-----------+-----------+-------------+-------------+
+| emp_id | emp_name | job_name  | salary    | emp_address | phonenumber |
++--------+----------+-----------+-----------+-------------+-------------+
+|      1 | dipika   | developer | 45000.000 | pune        |        NULL |
+|      2 | nikita   | developer | 35000.000 | thane       |        NULL |
+|      3 | dipika   | testing   | 35000.000 | mumbai      |        NULL |
+|      4 | lina     | testing   | 40000.000 | nagar       |        NULL |
+|      5 | mona     | testing   | 30000.000 | shirur      |        NULL |
++--------+----------+-----------+-----------+-------------+-------------+
+5 rows in set (0.00 sec)
+
+//Delete table
+mysql> delete from employee4 where emp_id='4';
+Query OK, 1 row affected (0.10 sec)
+
+mysql> select *from employee4;
++--------+----------+-----------+-----------+-------------+-------------+
+| emp_id | emp_name | job_name  | salary    | emp_address | phonenumber |
++--------+----------+-----------+-----------+-------------+-------------+
+|      1 | dipika   | developer | 45000.000 | pune        |        NULL |
+|      2 | nikita   | developer | 35000.000 | thane       |        NULL |
+|      3 | dipika   | testing   | 35000.000 | mumbai      |        NULL |
+|      5 | mona     | testing   | 30000.000 | shirur      |        NULL |
++--------+----------+-----------+-----------+-------------+-------------+
+4 rows in set (0.00 sec)
